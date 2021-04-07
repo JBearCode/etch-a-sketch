@@ -1,8 +1,6 @@
 const container = document.querySelector("#container");
 
-window.addEventListener("load", setOriginalGrid);
-
-function setOriginalGrid() {
+window.onload = function() {
     setGridSize(16);
     fillGrid(16);
 }
@@ -15,16 +13,16 @@ function fillGrid(size) {
     for (let i = 0; i < size * size; i++) {
       const gridBlock = document.createElement("div");
       gridBlock.classList = "grid-block";
-      gridBlock.addEventListener("mouseover", fillColor);
+      gridBlock.addEventListener("mouseover", giveColor);
       container.appendChild(gridBlock);
     }
   }
 
-  function fillColor(e) {
+  function giveColor(e) {
     const randomRed = Math.floor(Math.random() * 256);
     const randomGreen = Math.floor(Math.random() * 256);
     const randomBlue = Math.floor(Math.random() * 256);
-    e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+    e.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
   }
 
 /*

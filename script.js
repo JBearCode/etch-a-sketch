@@ -1,3 +1,26 @@
+const container = document.querySelector("#container");
+
+window.addEventListener("load", setOriginalGrid);
+
+function setOriginalGrid() {
+    setGridSize(16);
+    fillGrid(16);
+}
+
+function setGridSize(size) {
+    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  }
+
+function fillGrid(size) {
+    for (let i = 0; i < size * size; i++) {
+      const gridBlock = document.createElement("div");
+      gridBlock.classList = "grid-block";
+      container.appendChild(gridBlock);
+    }
+  }
+
+/*
+
 function makeDivs(v) { 
     let container = document.getElementById("container");
     
@@ -14,3 +37,4 @@ function makeDivs(v) {
     } 
     document.getElementById("code").innerText = e.innerHTML;
 }
+*/

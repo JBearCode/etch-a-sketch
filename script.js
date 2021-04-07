@@ -25,6 +25,13 @@ function fillGrid(size) {
     e.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
   }
 
+  function resetGrid() {
+    const gridArray = Array.from(container.childNodes);
+    gridArray.forEach((element) => {
+      container.removeChild(element);
+    });
+  }
+
 /*
 
 function makeDivs(v) { 

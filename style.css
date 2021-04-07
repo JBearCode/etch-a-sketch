@@ -7,6 +7,6 @@
     border: 2px solid black;
 }
 
-.grid-block {
-    border: 1px solid black;
-  }
+h1, label, input {
+    font-family: 'VT323', monospace;
+}

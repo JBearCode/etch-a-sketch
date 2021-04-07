@@ -1,15 +1,18 @@
 const container = document.getElementById("container");
 const gridSizeInput = document.getElementById('gridSizeInput');
 
+// generate original grid
 window.onload = function() {
     setGridSize(16);
     fillGrid(16);
 }
 
+// set grid columns
 function setGridSize(size) {
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
 }
 
+// create grid divs
 function fillGrid(size) {
     for (let i = 0; i < size * size; i++) {
       const gridBlock = document.createElement("div");
@@ -19,6 +22,7 @@ function fillGrid(size) {
     }
 }
 
+// give div random color
 function giveColor(e) {
     const randomRed = Math.floor(Math.random() * 256);
     const randomGreen = Math.floor(Math.random() * 256);
@@ -26,6 +30,7 @@ function giveColor(e) {
     e.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
 }
 
+// remove all divs from grid to reset
 function resetGrid() {
     const gridArray = Array.from(container.childNodes);
     gridArray.forEach((element) => {
@@ -33,6 +38,7 @@ function resetGrid() {
     });
 }
 
+// create new grid
 function resizeGrid(newSize) {
     const parsed = parseInt(newSize, 10);
     const rounded = Math.round(parsed)
@@ -41,35 +47,12 @@ function resizeGrid(newSize) {
         setGridSize(rounded);
         fillGrid(rounded);
     }
-    else {
-
-    }
 }
 
+// resize grid based on input in real time
 const inputHandler = function(e) {
     resizeGrid(e.target.value);
 }
 
+// event listener to activate function above
 gridSizeInput.addEventListener('input', inputHandler)
-
-
-
-/*
-
-function makeDivs(v) { 
-    let container = document.getElementById("container");
-    
-    for(let i = 0; i < v; i++) { 
-      let row = document.createElement("div"); 
-      row.className = "row";
-
-      for (let x = 1; x <= v; x++) { 
-          let cell = document.createElement("div"); 
-          cell.className = "gridsquare";
-          row.appendChild(cell); 
-      } 
-      container.appendChild(row); 
-    } 
-    document.getElementById("code").innerText = e.innerHTML;
-}
-*/

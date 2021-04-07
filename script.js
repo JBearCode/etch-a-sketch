@@ -15,8 +15,16 @@ function fillGrid(size) {
     for (let i = 0; i < size * size; i++) {
       const gridBlock = document.createElement("div");
       gridBlock.classList = "grid-block";
+      gridBlock.addEventListener("mouseover", fillColor);
       container.appendChild(gridBlock);
     }
+  }
+
+  function fillColor(e) {
+    const randomRed = Math.floor(Math.random() * 256);
+    const randomGreen = Math.floor(Math.random() * 256);
+    const randomBlue = Math.floor(Math.random() * 256);
+    e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
   }
 
 /*

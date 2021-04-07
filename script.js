@@ -1,4 +1,5 @@
-const container = document.querySelector("#container");
+const container = document.getElementById("container");
+const gridSizeInput = document.getElementById('gridSizeInput');
 
 window.onload = function() {
     setGridSize(16);
@@ -7,7 +8,7 @@ window.onload = function() {
 
 function setGridSize(size) {
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-  }
+}
 
 function fillGrid(size) {
     for (let i = 0; i < size * size; i++) {
@@ -16,21 +17,42 @@ function fillGrid(size) {
       gridBlock.addEventListener("mouseover", giveColor);
       container.appendChild(gridBlock);
     }
-  }
+}
 
-  function giveColor(e) {
+function giveColor(e) {
     const randomRed = Math.floor(Math.random() * 256);
     const randomGreen = Math.floor(Math.random() * 256);
     const randomBlue = Math.floor(Math.random() * 256);
     e.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
-  }
+}
 
-  function resetGrid() {
+function resetGrid() {
     const gridArray = Array.from(container.childNodes);
     gridArray.forEach((element) => {
       container.removeChild(element);
     });
-  }
+}
+
+function resizeGrid(newSize) {
+    const parsed = parseInt(newSize, 10);
+    const rounded = Math.round(parsed)
+    if (rounded > 1 && rounded < 65) {
+        resetGrid();
+        setGridSize(rounded);
+        fillGrid(rounded);
+    }
+    else {
+
+    }
+}
+
+const inputHandler = function(e) {
+    resizeGrid(e.target.value);
+}
+
+gridSizeInput.addEventListener('input', inputHandler)
+
+
 
 /*
 

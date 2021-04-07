@@ -22,13 +22,12 @@ function fillGrid(size) {
     }
 }
 
-// give div random color
+// random color update
 function giveColor(e) {
-    const randomRed = Math.floor(Math.random() * 256);
-    const randomGreen = Math.floor(Math.random() * 256);
-    const randomBlue = Math.floor(Math.random() * 256);
-    e.target.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    e.target.style.backgroundColor = "#" + randomColor;
 }
+
 
 // remove all divs from grid to reset
 function resetGrid() {

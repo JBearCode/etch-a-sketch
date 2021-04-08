@@ -24,23 +24,33 @@ function fillGrid(size) {
 
 // random color update
 function giveColor(e) {
-    let button1 = document.getElementById("defaultColor");
-    let button2 = document.getElementById("pastels");
+    let randomColor;
 
-    if (button1.checked) {
-        const randomColor = Math.floor(Math.random()*16777215).toString(16);
-        e.target.style.backgroundColor = "#" + randomColor;
-    } else if (button2.checked) {
-        getPastelColor();
-        e.target.style.backgroundColor = randomColor;
+    if (document.getElementById('defaultColor').checked == true) {
+        randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+    } else if (document.getElementById('eraser').checked == true) {
+        randomColor = "white";
+    } else if (document.getElementById('pastels').checked == true) {
+        randomColor = getRandomPastel();
     }
+    
+    
+    e.target.style.backgroundColor = randomColor;
 }
 
-function getPastelColor {
+// pastel function
+function getRandomPastel() {
     const hue = Math.floor(Math.random() * 360);
     const randomPastel = `hsl(${hue}, 70%, 80%)`;
-    return randomColor;
+    return randomPastel;
 }
+
+/* random color update
+function giveColor(e) {
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    e.target.style.backgroundColor = "#" + randomColor;
+}
+*/
 
 // remove all divs from grid to reset
 function resetGrid() {

@@ -32,8 +32,9 @@ function giveColor(e) {
         randomColor = "white";
     } else if (document.getElementById('pastels').checked == true) {
         randomColor = getRandomPastel();
+    } else if (document.getElementById('darken').checked == true) {
+        randomColor = darken(e);
     }
-    
     
     e.target.style.backgroundColor = randomColor;
 }
@@ -44,13 +45,6 @@ function getRandomPastel() {
     const randomPastel = `hsl(${hue}, 70%, 80%)`;
     return randomPastel;
 }
-
-/* random color update
-function giveColor(e) {
-    const randomColor = Math.floor(Math.random()*16777215).toString(16);
-    e.target.style.backgroundColor = "#" + randomColor;
-}
-*/
 
 // remove all divs from grid to reset
 function resetGrid() {
@@ -74,6 +68,7 @@ function resizeGrid(newSize) {
 // resize grid based on input in real time
 const inputHandler = function(e) {
     resizeGrid(e.target.value);
+    document.getElementById("defaultColor").checked = true;
 }
 
 // event listener to activate function above

@@ -12,13 +12,19 @@
 
 <header>
     <h1>Pixel Canvas</h1>
-    <div>
         <label for="gridSizeInput">Select a grid size between 2 and 64:</label>
-        <input type="text" id="gridSizeInput" size="2">
-    </div>
-    <div>
-        <label>Select a color scheme:</label>
-    </div>
+        <input type="text" id="gridSizeInput" size="2"><br>
+
+        <div class="radioButtonDiv">
+            <label>Select a color scheme:</label>
+
+            <label for="defaultColor">Random Colors</label>
+            <input type="radio" id="defaultColor" value="defaultColor" name="colorButton" checked="checked">
+
+            <label for="pastels">Pastels</label>
+            <input type="radio" id="pastels" value="pastels" name="colorButton">
+
+        </div>
 </header>
 
 <main>

@@ -7,6 +7,11 @@
     border: 2px solid black;
 }
 
-h1, label, input {
+body {
     font-family: 'VT323', monospace;
+    text-align: center;
+}
+
+h1 {
+    font-size: 5em;
 }
